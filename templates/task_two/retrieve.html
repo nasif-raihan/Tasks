@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="grid grid-cols-1">
+    <div class="flex justify-center mt-4">
+        <h4 class="justify font-bold">All User Details</h4>
+    </div>
+    <div class="flex justify-center">
+        <table class="table-auto m-2 border-2">
+          <thead>
+            <tr>
+              <th class="p-2 text-center">User ID</th>
+              <th class="p-2 text-center">Name</th>
+              <th class="p-2 text-center">Phone</th>
+              <th class="p-2 text-center">Email</th>
+              <th class="p-2 text-center">City</th>
+              <th class="p-2 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for user in users %}
+            <tr class="border-2">
+              <td class="p-2 text-center">{{user.uid}}</td>
+              <td class="p-2 text-center">{{user.name}}</td>
+              <td class="p-2 text-center">{{user.phone}}</td>
+              <td class="p-2 text-center">{{user.email}}</td>
+              <td class="p-2 text-center">{{user.home_city}}</td>
+              <td class="p-2 text-center">
+                  <div class="mt-2 mb-6">
+                      <a href="{% url 'delete' uid=user.uid %}" class="m-2 p-2 text-center border-2 rounded-lg p-2 bg-red-300 hover:bg-red-500">Delete</a>
+                  </div>
+                  <div class="mt-2 mb-6">
+                      <a href="{% url 'update' uid=user.uid %}" class="m-2 p-2 text-center border-2 rounded-lg p-2 bg-yellow-300 hover:bg-yellow-500">Update</a>
+                  </div>
+            </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

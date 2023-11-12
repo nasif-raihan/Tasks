@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-4">
+    <h4 class="flex justify-center font-bold mb-4">Update User</h4>
+</div>
+
+<div class="mt-2">
+    <form action="" method="post" class="flex justify-center">
+        {% csrf_token %}
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            {% for field in form %}
+            <div class="grid grid-cols-1">
+                <label for={{field.id_for_label}}>{{field.label_tag}}</label>
+                {% if field.field.choices %} {# Check if the field has choices #}
+                <select class="p-1 border-2 border-sky-300" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+                    {% for choice_value, choice_label in field.field.choices %}
+                        <option class="p-1 border-2 border-sky-300" value="{{ choice_value }}" {% if choice_value == field.value %}selected{% endif %}>
+                            {{ choice_label }}
+                        </option>
+                    {% endfor %}
+                </select>
+                {% else %}
+                <input class="p-1 border-2 border-sky-300" id={{field.id_for_label}} name={{field.html_name}} value="{% if field.value %}{{ field.value }}{% endif %}" type="text">
+                {% endif %}
+                <p>{{field.errors|striptags}}</p>
+            </div>
+            {% endfor %}
+            <div class="mb-4">
+                <input class="grid grid-cols-1 p-2 rounded-lg bg-sky-300 hover:bg-blue-500" type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
