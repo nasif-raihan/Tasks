@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from task_three.map import GetCoordinates
+from task_three.coordinate_finder import GetCoordinates
 
 
 def home(request):
@@ -8,7 +8,6 @@ def home(request):
 
 
 def get_coordinates(request):
-    print("Dhaka")
     if request.method == "POST":
         address = request.POST["address"]
         coordinates_finder = GetCoordinates.get_instance()

@@ -39,20 +39,4 @@ class GetCoordinates:
             return {"address": address, "latitude": latitude, "longitude": longitude}
 
         except Exception as e:
-            raise ValueError("Location does not exist in the map!")
-
-
-def main():
-    address = "Dhaka"
-
-    coordinates_finder = GetCoordinates.get_instance()
-    coordinates = coordinates_finder.get_geolocation(address)
-
-    if coordinates:
-        print(f"Geolocation for '{address}': {coordinates}")
-    else:
-        print("Failed to retrieve geolocation.")
-
-
-if __name__ == "__main__":
-    main()
+            raise ValueError("Location does not exist in the coordinate_finder!")
