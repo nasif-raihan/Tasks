@@ -1,6 +1,6 @@
 # Simple CRUD App
 
-This Django-based CRUD (Create, Read, Update, Delete) app provides basic functionalities for managing data entities. Users can perform operations such as adding, deleting, retrieving, and updating data through a simple web interface.
+This Django-based CRUD (Create, Read, Update, Delete) app provides basic functionalities for managing data entities. Users can perform operations such as adding, deleting, retrieving, and updating data through a simple web interface. In this Django project, **MySQL** has been chosen as the relational database management system (RDBMS), and Django's Object-Relational Mapping (ORM) is used to interact with the MySQL database. The combination of Django and MySQL provides a powerful and flexible foundation for developing web applications with robust data storage and retrieval capabilities.
 
 ## Features
 
