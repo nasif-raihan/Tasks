@@ -81,5 +81,3 @@ Feel free to customize, extend, or integrate this app into your Django project a
 - Ensure Docker is installed on your machine before building and running the Docker image.
 
 - The Dockerfile assumes a simple setup. Adjustments may be needed based on your project structure and requirements.
-
-Feel free to customize, extend, or integrate this app into your Django project as needed. If you encounter any issues or have suggestions for improvement, please feel free to contribute or open an issue.
