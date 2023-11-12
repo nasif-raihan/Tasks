@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block coordinate %}
+<div class="mt-4 flex justify-center">
+    <form class="grid grid-cols-1" action="{% url 'get_coordinates' %}" method="POST">
+        {% csrf_token %}
+        <label class="font-bold text-center" for="address">Put the address here</label>
+        <input class="border-1 pl-4 pr-4 pt-2 pb-2 rounded-lg bg-sky-200" id="address" name="address" required>
+        <div class="mt-2 mb-6 flex justify-center">
+            <button type="submit" class="m-2 p-2 text-center border-2 rounded-lg p-2 bg-red-300 hover:bg-red-500">Get Coordinates</button>
+        </div>
+    </form>
+</div>
+
+    {%if coordinates %}
+    <div class="mt-4 flex justify-center">
+        <p class="font-bold text-center">Coordinates</p>
+    </div>
+<div class="flex justify-center mb-4">
+        <table class="table-auto m-2 border-2">
+          <thead>
+            <tr>
+              <th class="p-2 text-center">Address</th>
+              <th class="p-2 text-center">Latitude</th>
+              <th class="p-2 text-center">Longitude</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-2">
+              <td class="p-2 text-center">{{coordinates.address}}</td>
+              <td class="p-2 text-center">{{coordinates.latitude}}</td>
+              <td class="p-2 text-center">{{coordinates.longitude}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    {% endif %}
+{% endblock coordinate %}
