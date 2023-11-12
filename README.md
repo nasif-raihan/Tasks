@@ -12,8 +12,8 @@ They are:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/tasks.git
-   cd tasks
+   git clone https://github.com/nasif-raihan/Tasks.git
+   cd Tasks
    ```
 
 2. **Install Poetry:**
